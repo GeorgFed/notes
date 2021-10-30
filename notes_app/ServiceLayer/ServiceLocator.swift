@@ -15,8 +15,15 @@ final class ServiceLocator: IServiceLocator {
     
     private let coreData = CoreDataManager()
     
+    private var notesRepository: NotesRepository {
+        NotesRepository(localStorage: coreData)
+    }
+    
     func buildNotes() -> NotesGraph {
-        let notesRepository = NotesRepository(localStorage: coreData)
-        return NotesGraph(repository: notesRepository)
+        return NotesGraph(serviceLocator: self, repository: notesRepository)
+    }
+    
+    func buildAddNote(observer: IAddNoteObserver) -> AddNoteGraph {
+        return AddNoteGraph(observer: observer, repository: notesRepository)
     }
 }
