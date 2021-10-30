@@ -16,9 +16,9 @@ final class NotesGraph {
     public var viewController: UIViewController {
         view
     }
-    init(repository: NotesRepository) {
+    init(serviceLocator: ServiceLocator, repository: NotesRepository) {
         model = NotesModel(repository: repository)
-        interactor = NotesInteractor(model: model)
+        interactor = NotesInteractor(serviceLocator: serviceLocator, model: model)
         view = NotesViewController(interactor: interactor)
         interactor.setViewDelegate(viewDelegate: view)
     }

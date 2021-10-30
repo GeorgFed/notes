@@ -20,8 +20,12 @@ class NotesModel {
         if let notes = notes {
             return notes
         } else {
-            notes = repository.getNotes()
-            return notes ?? []
+            return fetchNotes()
         }
+    }
+    
+    func fetchNotes() -> [NoteDTO] {
+        notes = repository.getNotes()
+        return notes ?? []
     }
 }

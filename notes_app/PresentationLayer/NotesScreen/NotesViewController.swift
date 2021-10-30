@@ -8,7 +8,7 @@
 import UIKit
 
 protocol NotesViewDelegate: AnyObject {
-    
+    func didUpdateData()
 }
 
 final class NotesViewController: UIViewController {
@@ -79,6 +79,8 @@ extension NotesViewController: UICollectionViewDelegate, UICollectionViewDataSou
 }
 
 extension NotesViewController: NotesViewDelegate {
-    
+    func didUpdateData() {
+        collectionView.reloadData()
+    }
 }
 

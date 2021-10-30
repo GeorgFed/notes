@@ -48,7 +48,10 @@ class AddNoteVC: UIViewController {
         self.hideKeyboardWhenTappedAround()
     }
     
-    init() {
+    private let interactor: IAddNoteInteractor
+    
+    init(interactor: IAddNoteInteractor) {
+        self.interactor = interactor
         super.init(nibName: nil, bundle: nil)
         setupUI()
     }
@@ -84,7 +87,14 @@ class AddNoteVC: UIViewController {
     
     @objc
     private func didTapAddButton() {
-        print("Add")
+        guard let title = titleField.text,
+              titleField.textColor != .secondaryLabel,
+              let body = bodyField.text,
+              bodyField.textColor != .secondaryLabel else {
+                  return
+        }
+        
+        interactor.addNote(title: title, body: body)
     }
 }
 
