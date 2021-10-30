@@ -18,6 +18,9 @@
 		3C0D1923272C8E6B00BB476D /* NotesRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C0D1922272C8E6B00BB476D /* NotesRepository.swift */; };
 		3C0D1925272C95CB00BB476D /* AppGraph.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C0D1924272C95CB00BB476D /* AppGraph.swift */; };
 		3C0D1929272C9AC600BB476D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C0D1928272C9AC600BB476D /* AppDelegate.swift */; };
+		3C0D192C272D9AF500BB476D /* NoteCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C0D192B272D9AF500BB476D /* NoteCell.swift */; };
+		3C0D192F272D9D9F00BB476D /* NoteDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C0D192E272D9D9F00BB476D /* NoteDTO.swift */; };
+		3C0D1931272DA60D00BB476D /* AddNoteVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C0D1930272DA60D00BB476D /* AddNoteVC.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,6 +37,9 @@
 		3C0D1922272C8E6B00BB476D /* NotesRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotesRepository.swift; sourceTree = "<group>"; };
 		3C0D1924272C95CB00BB476D /* AppGraph.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppGraph.swift; sourceTree = "<group>"; };
 		3C0D1928272C9AC600BB476D /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		3C0D192B272D9AF500BB476D /* NoteCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteCell.swift; sourceTree = "<group>"; };
+		3C0D192E272D9D9F00BB476D /* NoteDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteDTO.swift; sourceTree = "<group>"; };
+		3C0D1930272DA60D00BB476D /* AddNoteVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNoteVC.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -66,6 +72,7 @@
 		3C0D18F5272C887D00BB476D /* notes_app */ = {
 			isa = PBXGroup;
 			children = (
+				3C0D192D272D9D8700BB476D /* Entities */,
 				3C0D1904272C888100BB476D /* Info.plist */,
 				3C0D190D272C89A900BB476D /* Resources */,
 				3C0D190C272C899800BB476D /* App */,
@@ -123,6 +130,7 @@
 		3C0D1914272C8C3400BB476D /* NotesScreen */ = {
 			isa = PBXGroup;
 			children = (
+				3C0D192A272D9ACC00BB476D /* Cell */,
 				3C0D1916272C8C5C00BB476D /* NotesGraph.swift */,
 				3C0D1918272C8C9400BB476D /* NotesViewController.swift */,
 				3C0D191C272C8CAB00BB476D /* NotesInteractor.swift */,
@@ -134,8 +142,25 @@
 		3C0D1915272C8C4000BB476D /* AddNoteScreen */ = {
 			isa = PBXGroup;
 			children = (
+				3C0D1930272DA60D00BB476D /* AddNoteVC.swift */,
 			);
 			path = AddNoteScreen;
+			sourceTree = "<group>";
+		};
+		3C0D192A272D9ACC00BB476D /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				3C0D192B272D9AF500BB476D /* NoteCell.swift */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
+		3C0D192D272D9D8700BB476D /* Entities */ = {
+			isa = PBXGroup;
+			children = (
+				3C0D192E272D9D9F00BB476D /* NoteDTO.swift */,
+			);
+			path = Entities;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -207,14 +232,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3C0D1931272DA60D00BB476D /* AddNoteVC.swift in Sources */,
 				3C0D1923272C8E6B00BB476D /* NotesRepository.swift in Sources */,
 				3C0D1913272C8C0B00BB476D /* ServiceLocator.swift in Sources */,
+				3C0D192C272D9AF500BB476D /* NoteCell.swift in Sources */,
 				3C0D1925272C95CB00BB476D /* AppGraph.swift in Sources */,
 				3C0D191D272C8CAB00BB476D /* NotesInteractor.swift in Sources */,
 				3C0D1919272C8C9400BB476D /* NotesViewController.swift in Sources */,
 				3C0D191F272C8E2E00BB476D /* NotesModel.swift in Sources */,
 				3C0D1921272C8E5E00BB476D /* CoreDataManager.swift in Sources */,
 				3C0D1917272C8C5C00BB476D /* NotesGraph.swift in Sources */,
+				3C0D192F272D9D9F00BB476D /* NoteDTO.swift in Sources */,
 				3C0D1929272C9AC600BB476D /* AppDelegate.swift in Sources */,
 				3C0D190B272C896A00BB476D /* SceneDelegate.swift in Sources */,
 			);

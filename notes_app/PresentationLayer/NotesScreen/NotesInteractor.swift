@@ -9,9 +9,11 @@ import Foundation
 
 protocol INotesInteractor {
     func setViewDelegate(viewDelegate: NotesViewDelegate)
+    func getNotes() -> [NoteDTO]
 }
 
 final class NotesInteractor: INotesInteractor {
+    
     private let model: NotesModel
     
     weak var viewDelegate: NotesViewDelegate?
@@ -22,5 +24,9 @@ final class NotesInteractor: INotesInteractor {
     
     func setViewDelegate(viewDelegate: NotesViewDelegate) {
         self.viewDelegate = viewDelegate
+    }
+    
+    func getNotes() -> [NoteDTO] {
+        return model.getNotes()
     }
 }
