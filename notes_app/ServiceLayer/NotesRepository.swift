@@ -13,4 +13,8 @@ class NotesRepository {
     init(localStorage: ILocalStorage) {
         self.localStorage = localStorage
     }
+    
+    func getNotes() -> [NoteDTO] {
+        return localStorage.getNotes()
+    }
 }
