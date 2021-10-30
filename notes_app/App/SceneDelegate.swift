@@ -18,10 +18,12 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         }
         
         let appGraph = AppGraph()
+        let viewController = appGraph.viewController
+        let navigationController = UINavigationController(rootViewController: viewController)
         
         window = UIWindow(frame: UIScreen.main.bounds)
         window?.windowScene = windowScene
-        window?.rootViewController = appGraph.viewController
+        window?.rootViewController = navigationController
         window?.makeKeyAndVisible()
     }
 }
