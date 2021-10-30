@@ -6,10 +6,12 @@
 //
 
 import Foundation
+import UIKit
 
 protocol INotesInteractor {
     func setViewDelegate(viewDelegate: NotesViewDelegate)
     func getNotes() -> [NoteDTO]
+    func showAddNoteVC(navigation: UINavigationController)
 }
 
 final class NotesInteractor: INotesInteractor {
@@ -28,5 +30,10 @@ final class NotesInteractor: INotesInteractor {
     
     func getNotes() -> [NoteDTO] {
         return model.getNotes()
+    }
+    
+    func showAddNoteVC(navigation: UINavigationController) {
+        let addNoteVC = AddNoteVC()
+        navigation.pushViewController(addNoteVC, animated: true)
     }
 }

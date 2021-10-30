@@ -54,7 +54,11 @@ final class NotesViewController: UIViewController {
     
     @objc
     private func addTapped() {
-        print("add")
+        guard let navigation = self.navigationController else {
+            return
+        }
+        
+        interactor.showAddNoteVC(navigation: navigation)
     }
 }
 
