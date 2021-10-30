@@ -14,8 +14,9 @@ protocol IAddNoteObserver: AnyObject {
 
 protocol INotesInteractor {
     func setViewDelegate(viewDelegate: NotesViewDelegate)
-    func getNotes() -> [NoteDTO]
+    func getNotes() -> [Note]
     func showAddNoteVC(navigation: UINavigationController)
+    func delete(at index: Int)
 }
 
 final class NotesInteractor: INotesInteractor {
@@ -34,7 +35,7 @@ final class NotesInteractor: INotesInteractor {
         self.viewDelegate = viewDelegate
     }
     
-    func getNotes() -> [NoteDTO] {
+    func getNotes() -> [Note] {
         // not very optimized though...
         return model.getNotes()
         // .sorted { $0.createdAt > $1.createdAt }
@@ -44,6 +45,11 @@ final class NotesInteractor: INotesInteractor {
         let addNoteGraph = serviceLocator.buildAddNote(observer: self)
         let addNoteVC = addNoteGraph.viewController
         navigation.pushViewController(addNoteVC, animated: true)
+    }
+    
+    func delete(at index: Int) {
+        model.delete(at: index)
+        didUpdateNotes()
     }
 }
 

@@ -88,13 +88,15 @@ class AddNoteVC: UIViewController {
     @objc
     private func didTapAddButton() {
         guard let title = titleField.text,
-              titleField.textColor != .secondaryLabel,
-              let body = bodyField.text,
-              bodyField.textColor != .secondaryLabel else {
+              titleField.textColor != .secondaryLabel else {
                   return
         }
         
-        interactor.addNote(title: title, body: body)
+        guard let navigation = navigationController else {
+            return
+        }
+        
+        interactor.addNote(navigation: navigation, title: title, body: bodyField.text ?? "")
     }
 }
 

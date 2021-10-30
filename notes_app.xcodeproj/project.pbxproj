@@ -19,11 +19,13 @@
 		3C0D1925272C95CB00BB476D /* AppGraph.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C0D1924272C95CB00BB476D /* AppGraph.swift */; };
 		3C0D1929272C9AC600BB476D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C0D1928272C9AC600BB476D /* AppDelegate.swift */; };
 		3C0D192C272D9AF500BB476D /* NoteCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C0D192B272D9AF500BB476D /* NoteCell.swift */; };
-		3C0D192F272D9D9F00BB476D /* NoteDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C0D192E272D9D9F00BB476D /* NoteDTO.swift */; };
 		3C0D1931272DA60D00BB476D /* AddNoteVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C0D1930272DA60D00BB476D /* AddNoteVC.swift */; };
 		3C0D1934272DAF1100BB476D /* UIViewController+HideKeyboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C0D1933272DAF1100BB476D /* UIViewController+HideKeyboard.swift */; };
 		3C0D1936272DB0D300BB476D /* AddNoteGraph.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C0D1935272DB0D300BB476D /* AddNoteGraph.swift */; };
 		3C0D1938272DB0E200BB476D /* AddNoteInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C0D1937272DB0E200BB476D /* AddNoteInteractor.swift */; };
+		3C0D193C272DBDB400BB476D /* CoreDataNotes.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 3C0D193A272DBDB400BB476D /* CoreDataNotes.xcdatamodeld */; };
+		3C0D193F272DC54900BB476D /* Note+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C0D193D272DC54900BB476D /* Note+CoreDataClass.swift */; };
+		3C0D1940272DC54900BB476D /* Note+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C0D193E272DC54900BB476D /* Note+CoreDataProperties.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -41,11 +43,13 @@
 		3C0D1924272C95CB00BB476D /* AppGraph.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppGraph.swift; sourceTree = "<group>"; };
 		3C0D1928272C9AC600BB476D /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3C0D192B272D9AF500BB476D /* NoteCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteCell.swift; sourceTree = "<group>"; };
-		3C0D192E272D9D9F00BB476D /* NoteDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteDTO.swift; sourceTree = "<group>"; };
 		3C0D1930272DA60D00BB476D /* AddNoteVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNoteVC.swift; sourceTree = "<group>"; };
 		3C0D1933272DAF1100BB476D /* UIViewController+HideKeyboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+HideKeyboard.swift"; sourceTree = "<group>"; };
 		3C0D1935272DB0D300BB476D /* AddNoteGraph.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNoteGraph.swift; sourceTree = "<group>"; };
 		3C0D1937272DB0E200BB476D /* AddNoteInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNoteInteractor.swift; sourceTree = "<group>"; };
+		3C0D193B272DBDB400BB476D /* CoreDataNotes.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = CoreDataNotes.xcdatamodel; sourceTree = "<group>"; };
+		3C0D193D272DC54900BB476D /* Note+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "Note+CoreDataClass.swift"; path = "notes_app/CoreLayer/CoreData/Note+CoreDataClass.swift"; sourceTree = "<group>"; };
+		3C0D193E272DC54900BB476D /* Note+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "Note+CoreDataProperties.swift"; path = "notes_app/CoreLayer/CoreData/Note+CoreDataProperties.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,6 +66,8 @@
 		3C0D18EA272C887D00BB476D = {
 			isa = PBXGroup;
 			children = (
+				3C0D193D272DC54900BB476D /* Note+CoreDataClass.swift */,
+				3C0D193E272DC54900BB476D /* Note+CoreDataProperties.swift */,
 				3C0D18F5272C887D00BB476D /* notes_app */,
 				3C0D18F4272C887D00BB476D /* Products */,
 			);
@@ -78,9 +84,8 @@
 		3C0D18F5272C887D00BB476D /* notes_app */ = {
 			isa = PBXGroup;
 			children = (
-				3C0D1932272DAEEE00BB476D /* Extensions */,
-				3C0D192D272D9D8700BB476D /* Entities */,
 				3C0D1904272C888100BB476D /* Info.plist */,
+				3C0D1932272DAEEE00BB476D /* Extensions */,
 				3C0D190D272C89A900BB476D /* Resources */,
 				3C0D190C272C899800BB476D /* App */,
 				3C0D1910272C8B0200BB476D /* PresentationLayer */,
@@ -120,6 +125,7 @@
 		3C0D190F272C8AF500BB476D /* CoreLayer */ = {
 			isa = PBXGroup;
 			children = (
+				3C0D1939272DBD9200BB476D /* CoreData */,
 				3C0D1920272C8E5E00BB476D /* CoreDataManager.swift */,
 			);
 			path = CoreLayer;
@@ -164,20 +170,20 @@
 			path = Cell;
 			sourceTree = "<group>";
 		};
-		3C0D192D272D9D8700BB476D /* Entities */ = {
-			isa = PBXGroup;
-			children = (
-				3C0D192E272D9D9F00BB476D /* NoteDTO.swift */,
-			);
-			path = Entities;
-			sourceTree = "<group>";
-		};
 		3C0D1932272DAEEE00BB476D /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
 				3C0D1933272DAF1100BB476D /* UIViewController+HideKeyboard.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		3C0D1939272DBD9200BB476D /* CoreData */ = {
+			isa = PBXGroup;
+			children = (
+				3C0D193A272DBDB400BB476D /* CoreDataNotes.xcdatamodeld */,
+			);
+			path = CoreData;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -250,6 +256,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3C0D1931272DA60D00BB476D /* AddNoteVC.swift in Sources */,
+				3C0D193C272DBDB400BB476D /* CoreDataNotes.xcdatamodeld in Sources */,
 				3C0D1923272C8E6B00BB476D /* NotesRepository.swift in Sources */,
 				3C0D1913272C8C0B00BB476D /* ServiceLocator.swift in Sources */,
 				3C0D1934272DAF1100BB476D /* UIViewController+HideKeyboard.swift in Sources */,
@@ -260,9 +267,10 @@
 				3C0D1919272C8C9400BB476D /* NotesViewController.swift in Sources */,
 				3C0D191F272C8E2E00BB476D /* NotesModel.swift in Sources */,
 				3C0D1921272C8E5E00BB476D /* CoreDataManager.swift in Sources */,
+				3C0D1940272DC54900BB476D /* Note+CoreDataProperties.swift in Sources */,
 				3C0D1917272C8C5C00BB476D /* NotesGraph.swift in Sources */,
 				3C0D1938272DB0E200BB476D /* AddNoteInteractor.swift in Sources */,
-				3C0D192F272D9D9F00BB476D /* NoteDTO.swift in Sources */,
+				3C0D193F272DC54900BB476D /* Note+CoreDataClass.swift in Sources */,
 				3C0D1929272C9AC600BB476D /* AppDelegate.swift in Sources */,
 				3C0D190B272C896A00BB476D /* SceneDelegate.swift in Sources */,
 			);
@@ -463,6 +471,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		3C0D193A272DBDB400BB476D /* CoreDataNotes.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				3C0D193B272DBDB400BB476D /* CoreDataNotes.xcdatamodel */,
+			);
+			currentVersion = 3C0D193B272DBDB400BB476D /* CoreDataNotes.xcdatamodel */;
+			path = CoreDataNotes.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 3C0D18EB272C887D00BB476D /* Project object */;
 }

@@ -76,6 +76,16 @@ extension NotesViewController: UICollectionViewDelegate, UICollectionViewDataSou
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return interactor.getNotes().count
     }
+    
+    func collectionView(_ collectionView: UICollectionView, contextMenuConfigurationForItemAt indexPath: IndexPath, point: CGPoint) -> UIContextMenuConfiguration? {
+        let identifier = "\(indexPath.row)" as NSString
+        return UIContextMenuConfiguration(identifier: identifier, previewProvider: .none) { _ in
+            let deleteAction = UIAction(title: "Delete", image: UIImage(systemName: "trash"), attributes: UIMenuElement.Attributes.destructive) { [weak self] _ in
+                self?.interactor.delete(at: indexPath.row)
+            }
+            return UIMenu(title: "", options: .destructive, children: [deleteAction])
+        }
+    }
 }
 
 extension NotesViewController: NotesViewDelegate {
