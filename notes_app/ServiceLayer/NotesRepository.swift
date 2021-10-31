@@ -14,14 +14,15 @@ class NotesRepository {
         self.localStorage = localStorage
     }
     
-    func getNotes() -> [NoteDTO] {
+    func getNotes() -> [Note] {
         return localStorage.getNotes()
     }
     
     func addNote(title: String, body: String, createdAt: Date) {
-        let note = NoteDTO(title: title,
-                           body: body,
-                           createdAt: createdAt)
-        localStorage.addNote(note: note)
+        localStorage.addNote(title: title, body: body, date: createdAt)
+    }
+    
+    func delete(at index: Int) {
+        localStorage.delete(at: index)
     }
 }

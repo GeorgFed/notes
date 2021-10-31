@@ -6,11 +6,12 @@
 //
 
 import Foundation
+import UIKit
 
 protocol IAddNoteInteractor {
     
     func setObserver(observer: IAddNoteObserver)
-    func addNote(title: String, body: String)
+    func addNote(navigation: UINavigationController, title: String, body: String)
 }
 
 class AddNoteInteractor: IAddNoteInteractor {
@@ -27,11 +28,12 @@ class AddNoteInteractor: IAddNoteInteractor {
         self.observer = observer
     }
     
-    func addNote(title: String, body: String) {
+    func addNote(navigation: UINavigationController, title: String, body: String) {
         repository.addNote(title: title, body: body, createdAt: Date())
         guard let observer = observer else {
             return
         }
         observer.didUpdateNotes()
+        navigation.popViewController(animated: true)
     }
 }

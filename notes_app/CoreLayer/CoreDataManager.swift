@@ -6,27 +6,69 @@
 //
 
 import Foundation
+import CoreData
 
 protocol ILocalStorage {
-    func getNotes() -> [NoteDTO]
-    func addNote(note: NoteDTO)
+    func getNotes() -> [Note]
+    func addNote(title: String, body: String, date: Date)
+    func delete(at index: Int)
 }
 
 class CoreDataManager: ILocalStorage {
-    private var mockNotes = [
-        NoteDTO(title: "Ligma",
-                body: "A deadly desease that may be transfered through jokes. Subtype of Joe-like jokes that can often be caught on the internet by newbies.",
-                createdAt: Date()),
-        NoteDTO(title: "Ligma",
-                body: "A deadly desease that may be transfered through jokes. Subtype of Joe-like jokes that can often be caught on the internet by newbies.",
-                createdAt: Date()),
-    ]
     
-    func getNotes() -> [NoteDTO] {
-        return mockNotes
+    private var notes: [Note]?
+    
+    let context: NSManagedObjectContext = {
+        let container = NSPersistentContainer(name: "CoreDataNotes")
+        container.loadPersistentStores { _, error in
+            if let error = error {
+                fatalError("Container loading failed")
+            }
+        }
+        return container.viewContext
+    }()
+    
+    func getNotes() -> [Note] {
+        if let notes = try? context.fetch(Note.fetchRequest()) {
+            self.notes = notes.sorted(by: {
+                $0.createdAt.compare($1.createdAt) == .orderedDescending
+            })
+        } else {
+            self.notes = []
+        }
+        return self.notes ?? []
     }
     
-    func addNote(note: NoteDTO) {
-        mockNotes.append(note)
+    func addNote(title: String, body: String, date: Date) {
+        let note = Note(context: context)
+        
+        note.title = title
+        note.body = body
+        note.createdAt = date
+        
+        notes?.append(note)
+        saveNotes()
+    }
+    
+    private func saveNotes() {
+        if context.hasChanges {
+            try? context.save()
+        }
+        
+        if let notes = try? context.fetch(Note.fetchRequest()) {
+            self.notes = notes
+        } else {
+            self.notes = []
+        }
+    }
+    
+    func delete(at index: Int) {
+        guard let note = notes?[index] else {
+            return
+        }
+        
+        self.context.delete(note)
+        self.notes?.remove(at: index)
+        saveNotes()
     }
 }

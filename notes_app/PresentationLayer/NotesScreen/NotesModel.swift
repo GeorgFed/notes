@@ -10,13 +10,13 @@ import Foundation
 class NotesModel {
     private let repository: NotesRepository
     
-    private(set) var notes: [NoteDTO]?
+    private(set) var notes: [Note]?
     
     init(repository: NotesRepository) {
         self.repository = repository
     }
     
-    func getNotes() -> [NoteDTO] {
+    func getNotes() -> [Note] {
         if let notes = notes {
             return notes
         } else {
@@ -24,7 +24,12 @@ class NotesModel {
         }
     }
     
-    func fetchNotes() -> [NoteDTO] {
+    func delete(at index: Int) {
+        repository.delete(at: index)
+    }
+    
+    @discardableResult
+    func fetchNotes() -> [Note] {
         notes = repository.getNotes()
         return notes ?? []
     }
