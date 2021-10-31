@@ -25,7 +25,7 @@ class NotesModel {
     }
     
     func delete(at index: Int) {
-        
+        repository.delete(at: index)
     }
     
     @discardableResult

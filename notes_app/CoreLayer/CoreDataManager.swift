@@ -63,12 +63,12 @@ class CoreDataManager: ILocalStorage {
     }
     
     func delete(at index: Int) {
-        guard let notes = notes else {
+        guard let note = notes?[index] else {
             return
         }
-
-        self.context.delete(notes[index])
-        // self.notes?.remove(at: index)
+        
+        self.context.delete(note)
+        self.notes?.remove(at: index)
         saveNotes()
     }
 }
